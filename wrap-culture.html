@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wrap Culture | Mangaluru</title>
+<meta name="description" content="Wrap Culture, rolled fresh and loaded loud. Wraps, rolls and sides in Mangaluru.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#D7191F; --red-deep:#A50F15; --ink:#1B0606; --white:#FFFFFF; --cream:#FFF6F0; --blush:#FFE3DC;
+  --display:'Bricolage Grotesque',system-ui,sans-serif; --serif:'Instrument Serif',Georgia,serif; --body:'DM Sans',system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--cream);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-height:.95}
+em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0}
+
+/* preloader */
+#pre{position:fixed;inset:0;background:var(--red);z-index:100;display:grid;place-items:center;transition:transform .9s var(--ease) .1s}
+#pre.done{transform:translateY(-100%)}
+#pre .in{color:#fff;text-align:center}
+#pre .big{font-family:var(--display);font-weight:800;font-size:clamp(40px,10vw,110px);letter-spacing:-.04em;line-height:.9;overflow:hidden}
+#pre .big span{display:inline-block;transform:translateY(110%);animation:up .8s var(--ease) forwards}
+#pre .big span:nth-child(2){animation-delay:.12s}
+#pre .bar{margin:22px auto 0;width:180px;height:4px;background:rgba(255,255,255,.3);border-radius:4px;overflow:hidden}
+#pre .bar i{display:block;height:100%;width:0;background:#fff;animation:load 1.3s var(--ease) .2s forwards}
+@keyframes up{to{transform:none}} @keyframes load{to{width:100%}}
+
+/* cursor */
+#cur{position:fixed;left:0;top:0;width:18px;height:18px;border-radius:50%;background:var(--red);mix-blend-mode:multiply;pointer-events:none;z-index:90;transform:translate(-50%,-50%);transition:width .25s var(--ease),height .25s var(--ease),opacity .2s}
+#cur.big{width:64px;height:64px}
+@media (hover:none){#cur{display:none}}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,box-shadow .3s,transform .4s var(--ease)}
+nav.stuck{background:rgba(255,246,240,.88);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(27,6,6,.08)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.04em;display:flex;align-items:center;gap:8px}
+.logo b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;font-size:15px;transition:transform .6s var(--ease)}
+.logo:hover b{transform:rotate(360deg)}
+.links{display:flex;gap:30px;font-weight:500;font-size:15px}
+.links a{position:relative}
+.links a::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
+.links a:hover::after{transform:scaleX(1);transform-origin:left}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:99px;background:var(--red);color:#fff;font-weight:700;font-size:15px;border:2px solid var(--red);transition:background .3s,color .3s,transform .3s var(--ease);will-change:transform}
+.btn:hover{background:var(--ink);border-color:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn.white{background:#fff;color:var(--red);border-color:#fff}
+.btn.white:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.navbtn{padding:11px 20px}
+@media(max-width:760px){.links{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;padding:120px 0 70px;display:flex;align-items:center;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:22px}
+.eyebrow::before{content:"";width:34px;height:2px;background:var(--red)}
+.hero h1{font-size:clamp(56px,10.5vw,150px)}
+.line{display:block;overflow:hidden;padding-bottom:.08em}
+.line span{display:inline-block;transform:translateY(115%);transition:transform 1s var(--ease)}
+.go .line span{transform:none}
+.go .line:nth-child(2) span{transition-delay:.12s}
+.go .line:nth-child(3) span{transition-delay:.24s}
+.hero h1 .red{color:var(--red)}
+.hero p.sub{margin:26px 0 34px;font-size:clamp(17px,1.6vw,20px);max-width:470px;line-height:1.55;opacity:0;transform:translateY(20px);transition:all .9s var(--ease) .6s}
+.go p.sub{opacity:.82;transform:none}
+.cta{display:flex;gap:14px;flex-wrap:wrap;opacity:0;transform:translateY(20px);transition:all .9s var(--ease) .75s}
+.go .cta{opacity:1;transform:none}
+.art{position:relative;aspect-ratio:1;display:grid;place-items:center}
+.disc{position:absolute;inset:6%;border-radius:50%;background:var(--red);transform:scale(0);transition:transform 1.1s var(--ease) .3s}
+.go .disc{transform:scale(1)}
+.disc::after{content:"";position:absolute;inset:-5%;border-radius:50%;border:2px dashed var(--red);opacity:.35;animation:spin 40s linear infinite}
+.wrapsvg{position:relative;width:84%;filter:drop-shadow(0 30px 30px rgba(120,10,15,.35));animation:float 5s ease-in-out infinite;transform-origin:center;opacity:0;transition:opacity .6s .9s}
+.go .wrapsvg{opacity:1}
+.badge{position:absolute;right:-2%;top:2%;width:28%;animation:spin 14s linear infinite}
+.badge text{font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:3px;fill:var(--ink)}
+.badge circle.c{fill:#fff}
+.chip{position:absolute;background:#fff;border-radius:99px;padding:10px 16px;font-weight:700;font-size:13px;box-shadow:0 10px 24px rgba(27,6,6,.15);display:flex;align-items:center;gap:8px;animation:float 4s ease-in-out infinite}
+.chip i{width:9px;height:9px;border-radius:50%;background:var(--red)}
+.chip.a{left:-2%;bottom:18%;animation-delay:-1s}
+.chip.b{right:2%;bottom:6%;animation-delay:-2.5s}
+.blob{position:absolute;border-radius:50%;background:var(--blush);z-index:0;will-change:transform}
+.blob.one{width:420px;height:420px;left:-140px;bottom:-120px}
+.blob.two{width:240px;height:240px;right:30%;top:90px;background:#FFD0C6}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{50%{transform:translateY(-16px) rotate(1.5deg)}}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.art{max-width:420px;margin:0 auto}.badge{right:0}}
+
+/* marquee */
+.marq{background:var(--ink);color:#fff;padding:20px 0;overflow:hidden;transform:rotate(-1.6deg);margin:-14px -20px 0;position:relative;z-index:3}
+.marq.alt{background:var(--red);transform:rotate(1.2deg);margin-top:-24px}
+.track{display:flex;width:max-content;animation:slide 28s linear infinite}
+.marq.alt .track{animation-direction:reverse;animation-duration:34s}
+.track span{font-family:var(--display);font-weight:800;font-size:clamp(26px,4vw,46px);letter-spacing:-.02em;padding:0 22px;display:flex;align-items:center;gap:44px;white-space:nowrap}
+.track span::after{content:"✺";color:var(--red);font-size:.7em}
+.marq.alt .track span::after{color:#fff}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+
+section{padding:clamp(80px,12vw,150px) 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:56px}
+.head h2{font-size:clamp(44px,7.5vw,104px)}
+.head h2 .red{color:var(--red)}
+.head p{max-width:340px;opacity:.75;line-height:1.55}
+
+/* how */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.step{position:relative;background:#fff;border-radius:28px;padding:34px 30px 38px;overflow:hidden;border:2px solid var(--ink);transition:transform .5s var(--ease),background .4s,color .4s}
+.step:hover{transform:translateY(-10px) rotate(-1deg);background:var(--red);color:#fff}
+.step .n{font-family:var(--display);font-weight:800;font-size:110px;line-height:.8;color:var(--red);transition:color .4s,transform .6s var(--ease)}
+.step:hover .n{color:#fff;transform:scale(1.12) translateX(8px)}
+.step h3{font-size:30px;margin:22px 0 10px}
+.step p{line-height:1.55;opacity:.8}
+@media(max-width:860px){.steps{grid-template-columns:1fr}}
+
+/* menu */
+#menu{background:var(--red);color:#fff;position:relative;overflow:hidden}
+#menu .head h2 .red{color:var(--ink)}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.tab{font:700 15px var(--body);padding:13px 24px;border-radius:99px;border:2px solid #fff;background:transparent;color:#fff;cursor:pointer;transition:all .3s var(--ease)}
+.tab:hover{transform:translateY(-3px)}
+.tab.on{background:#fff;color:var(--red)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{position:relative;background:#fff;color:var(--ink);border-radius:26px;padding:26px 26px 24px;display:flex;flex-direction:column;gap:10px;min-height:210px;overflow:hidden;animation:pop .6s var(--ease) both;transition:transform .35s var(--ease),box-shadow .35s;transform-style:preserve-3d}
+.card:hover{box-shadow:0 26px 50px rgba(60,0,3,.35)}
+.card::before{content:"";position:absolute;right:-40px;top:-40px;width:130px;height:130px;border-radius:50%;background:var(--blush);transition:transform .6s var(--ease)}
+.card:hover::before{transform:scale(3.2)}
+.card>*{position:relative}
+.top{display:flex;justify-content:space-between;align-items:center}
+.dot{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.dot::before{content:"";width:14px;height:14px;border:2px solid;border-radius:3px;background:radial-gradient(circle,currentColor 38%,transparent 42%)}
+.dot.v{color:#1E8E3E}.dot.n{color:var(--red-deep)}
+.hot{font-size:11px;font-weight:800;background:var(--red);color:#fff;padding:5px 10px;border-radius:99px;letter-spacing:.08em}
+.card h3{font-size:27px;letter-spacing:-.025em;line-height:1}
+.card p{font-size:15px;line-height:1.5;opacity:.75;flex:1}
+.price{font-family:var(--display);font-weight:800;font-size:26px;color:var(--red)}
+.price small{font-size:14px;font-weight:500;color:var(--ink);opacity:.5}
+@keyframes pop{from{opacity:0;transform:translateY(30px) scale(.94)}}
+.note{margin-top:30px;font-size:14px;opacity:.85}
+@media(max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+
+/* big statement */
+.say{padding:clamp(90px,14vw,180px) 0;text-align:center;position:relative;overflow:hidden}
+.say h2{font-size:clamp(46px,10vw,150px)}
+.say h2 .red{color:var(--red)}
+.say .stamp{position:absolute;right:6%;top:14%;width:clamp(90px,14vw,170px);animation:spin 18s linear infinite}
+
+/* contact */
+#contact{padding-bottom:0}
+.contact{background:var(--ink);color:#fff;border-radius:44px 44px 0 0;padding:clamp(50px,8vw,100px) clamp(24px,6vw,80px);position:relative;overflow:hidden}
+.contact .grid2{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;position:relative;z-index:2}
+.contact h2{font-size:clamp(44px,8vw,112px)}
+.contact h2 .red{color:var(--red)}
+.phone{display:inline-block;margin:30px 0 28px;font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,64px);letter-spacing:-.03em;border-bottom:4px solid var(--red);transition:color .3s,letter-spacing .4s var(--ease)}
+.phone:hover{color:var(--red);letter-spacing:-.01em}
+.info{display:grid;gap:22px;align-content:center}
+.info div{padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.18)}
+.info small{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:6px}
+.info b{font-weight:500;font-size:19px;line-height:1.4}
+.huge{font-family:var(--display);font-weight:800;font-size:clamp(70px,19vw,290px);letter-spacing:-.06em;line-height:.8;color:var(--red);white-space:nowrap;margin:60px -20px -.12em;opacity:.95;user-select:none}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;opacity:.6;margin-top:36px;position:relative;z-index:2}
+@media(max-width:860px){.contact .grid2{grid-template-columns:1fr}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rv,.line span,.disc,.wrapsvg,p.sub,.cta{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<div id="pre"><div class="in"><div class="big"><span>Wrap</span> <span>Culture</span></div><div class="bar"><i></i></div></div></div>
+<div id="cur"></div>
+
+<nav id="nav"><div class="wrap">
+  <a href="#top" class="logo"><b>W</b>Wrap Culture</a>
+  <div class="links"><a href="#how">How we roll</a><a href="#menu">Menu</a><a href="#contact">Contact</a></div>
+  <a href="#contact" class="btn navbtn" data-call>Call us</a>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="blob one"></div><div class="blob two"></div>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Mangaluru's wrap spot</div>
+      <h1>
+        <span class="line"><span>Rolled</span></span>
+        <span class="line"><span class="red">loud.</span></span>
+        <span class="line"><span><em>Eaten fast.</em></span></span>
+      </h1>
+      <p class="sub">Warm wraps, stuffed edge to edge with smoky fillings and sauces that mean it. Built to order, wrapped tight, gone in minutes.</p>
+      <div class="cta">
+        <a href="#menu" class="btn">See the menu →</a>
+        <a href="#contact" class="btn ghost" data-call>Call to order</a>
+      </div>
+    </div>
+    <div class="art" id="art">
+      <div class="disc"></div>
+      <svg class="wrapsvg" viewBox="0 0 400 400" aria-label="Illustration of a loaded wrap">
+        <defs>
+          <pattern id="st" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect width="26" height="26" fill="#D7191F"/><rect width="13" height="26" fill="#fff" opacity=".92"/>
+          </pattern>
+        </defs>
+        <g transform="rotate(-16 200 210)">
+          <rect x="108" y="96" width="184" height="270" rx="62" fill="#F3CE93"/>
+          <rect x="108" y="96" width="184" height="270" rx="62" fill="none" stroke="#D9A458" stroke-width="5"/>
+          <ellipse cx="200" cy="112" rx="92" ry="36" fill="#E7B25E"/>
+          <ellipse cx="170" cy="98" rx="42" ry="20" fill="#6FC15F"/>
+          <ellipse cx="228" cy="92" rx="34" ry="18" fill="#85D072"/>
+          <circle cx="200" cy="108" r="16" fill="#E8272E"/>
+          <circle cx="152" cy="116" r="11" fill="#E8272E"/>
+          <circle cx="246" cy="112" r="10" fill="#FFF6F0"/>
+          <path d="M140 118 q30 -22 58 0 t60 -6" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" opacity=".9"/>
+          <path d="M108 238 H292 V300 Q292 366 226 366 H174 Q108 366 108 300 Z" fill="url(#st)"/>
+          <path d="M108 238 H292" stroke="#A50F15" stroke-width="6"/>
+        </g>
+      </svg>
+      <svg class="badge" viewBox="0 0 120 120" aria-hidden="true">
+        <circle class="c" cx="60" cy="60" r="58"/>
+        <defs><path id="cp" d="M60 60 m-42 0 a42 42 0 1 1 84 0 a42 42 0 1 1 -84 0"/></defs>
+        <text><textPath href="#cp">FRESH • HOT • ROLLED • TO ORDER •</textPath></text>
+        <circle cx="60" cy="60" r="12" fill="#D7191F"/>
+      </svg>
+      <div class="chip a"><i></i>Made to order</div>
+      <div class="chip b"><i></i>Veg &amp; non-veg</div>
+    </div>
+  </div>
+</header>
+
+<div class="marq"><div class="track" id="m1"></div></div>
+
+<section id="how"><div class="wrap">
+  <div class="head">
+    <h2 class="rv">How we<br><em>roll</em> <span class="red">it.</span></h2>
+    <p class="rv d1">No sad pre-made stuff. Every wrap is built when you order it, so it lands hot, crisp and properly loaded.</p>
+  </div>
+  <div class="steps">
+    <div class="step rv"><div class="n">01</div><h3>Pick your filling</h3><p>Chicken, paneer, egg, mushroom or veg. Grilled, tossed or crisp-fried, your call.</p></div>
+    <div class="step rv d1"><div class="n">02</div><h3>Pick your fire</h3><p>Mild, medium or "why did I do this". Our sauces go from cool and creamy to loud and red.</p></div>
+    <div class="step rv d2"><div class="n">03</div><h3>We wrap it tight</h3><p>Pressed, rolled and foiled so it stays together from the counter to the last bite.</p></div>
+  </div>
+</div></section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="head">
+      <h2 class="rv">The <span class="red">menu.</span></h2>
+      <p class="rv d1">Tap a category. Everything is made fresh when you order.</p>
+    </div>
+    <div class="tabs rv" id="tabs"></div>
+    <div class="grid" id="grid"></div>
+    <p class="note">Sample menu and prices shown. Replace with the real list.</p>
+  </div>
+</section>
+
+<div class="marq alt" style="margin-top:0"><div class="track" id="m2"></div></div>
+
+<div class="say"><div class="wrap">
+  <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="58" fill="#D7191F"/><defs><path id="cp2" d="M60 60 m-42 0 a42 42 0 1 1 84 0 a42 42 0 1 1 -84 0"/></defs><text style="font:800 13px 'Bricolage Grotesque',sans-serif;letter-spacing:3px;fill:#fff"><textPath href="#cp2">NO BORING WRAPS • EVER • </textPath></text></svg>
+  <h2 class="rv">Life's too short<br>for a <span class="red">boring</span><br><em>wrap.</em></h2>
+</div></div>
+
+<section id="contact"><div class="wrap">
+  <div class="contact">
+    <div class="grid2">
+      <div>
+        <div class="eyebrow" style="color:#fff">Hungry yet?</div>
+        <h2 class="rv">Call.<br>Order.<br><span class="red">Devour.</span></h2>
+        <a class="phone" data-call data-phone href="#contact">+91 98XXX XXXXX</a><br>
+        <a class="btn white" data-call>Call now</a>
+      </div>
+      <div class="info">
+        <div><small>Find us</small><b>Mangaluru, Karnataka</b></div>
+        <div><small>Open</small><b>Daily, lunch till late</b></div>
+        <div><small>Order</small><b>Call for takeaway and delivery</b></div>
+      </div>
+    </div>
+    <div class="huge" aria-hidden="true">WRAP CULTURE</div>
+    <div class="foot"><span>© <span id="yr"></span> Wrap Culture, Mangaluru</span><span>Rolled with heat.</span></div>
+  </div>
+</div></section>
+
+<script>
+/* ===== EDIT THESE ===== */
+const CONFIG = {
+  phoneDisplay: "+91 98XXX XXXXX",   // what shows on the page
+  phoneTel: ""                        // digits for the call link, e.g. "+919876543210"
+};
+const MENU = [
+  {c:"Chicken", v:0, hot:1, n:"Peri Peri Chicken Wrap", d:"Grilled chicken, peri peri sauce, crunchy slaw, mint mayo.", p:149},
+  {c:"Chicken", v:0, n:"Chicken Tikka Roll", d:"Charred tikka, pickled onions, green chutney, soft paratha.", p:139},
+  {c:"Chicken", v:0, hot:1, n:"Red Fire Crispy Wrap", d:"Crispy fried chicken, fiery red sauce, cheese, lettuce.", p:159},
+  {c:"Chicken", v:0, n:"Butter Garlic Chicken Wrap", d:"Creamy garlic chicken, sweet corn, cabbage, house sauce.", p:149},
+  {c:"Chicken", v:0, n:"Egg &amp; Chicken Double", d:"Masala egg layer plus grilled chicken in one roll.", p:169},
+  {c:"Veg", v:1, n:"Paneer Tikka Wrap", d:"Tandoori paneer, capsicum, onions, mint chutney.", p:129},
+  {c:"Veg", v:1, hot:1, n:"Schezwan Veg Wrap", d:"Wok-tossed veggies in schezwan, noodles inside for crunch.", p:119},
+  {c:"Veg", v:1, n:"Mushroom Masala Wrap", d:"Pepper mushrooms, cheese, tangy house sauce.", p:129},
+  {c:"Veg", v:1, n:"Falafel Garden Wrap", d:"Crisp falafel, hummus, fresh veg, garlic yoghurt.", p:139},
+  {c:"Sides & Sips", v:1, n:"Loaded Fries", d:"Crinkle fries, cheese sauce, peri peri dust.", p:99},
+  {c:"Sides & Sips", v:1, n:"Cold Coffee", d:"Thick, chilled and just sweet enough.", p:89},
+  {c:"Sides & Sips", v:1, n:"Fresh Lime Soda", d:"Sweet, salted or mixed. Ice cold.", p:59},
+];
+/* ====================== */
+
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+$("#yr").textContent=new Date().getFullYear();
+
+// phone wiring
+$$("[data-phone]").forEach(e=>e.textContent=CONFIG.phoneDisplay);
+$$("[data-call]").forEach(e=>e.setAttribute("href",CONFIG.phoneTel?"tel:"+CONFIG.phoneTel:"#contact"));
+
+// marquees
+const words1=["Fresh rolled","Loaded","Spicy","Made to order","Hot off the grill","Wrap it up"];
+const words2=["Peri peri","Paneer tikka","Crispy chicken","Schezwan","Garlic mayo","Loaded fries"];
+const fill=(el,w)=>{const h=[...w,...w].map(t=>`<span>${t}</span>`).join("");el.innerHTML=h+h};
+fill($("#m1"),words1);fill($("#m2"),words2);
+
+// menu
+const cats=["All",...new Set(MENU.map(m=>m.c))];
+let cur="All";
+$("#tabs").innerHTML=cats.map(c=>`<button class="tab ${c==="All"?"on":""}" data-c="${c}">${c}</button>`).join("");
+function draw(){
+  $("#grid").innerHTML=MENU.filter(m=>cur==="All"||m.c===cur).map((m,i)=>`
+    <article class="card" style="animation-delay:${i*60}ms">
+      <div class="top"><span class="dot ${m.v?"v":"n"}">${m.v?"Veg":"Non-veg"}</span>${m.hot?'<span class="hot">HOT</span>':""}</div>
+      <h3>${m.n}</h3><p>${m.d}</p>
+      <div class="price"><small>₹</small>${m.p}</div>
+    </article>`).join("");
+  $$(".card").forEach(tilt);
+}
+$("#tabs").addEventListener("click",e=>{
+  const b=e.target.closest(".tab"); if(!b) return;
+  cur=b.dataset.c; $$(".tab").forEach(t=>t.classList.toggle("on",t===b)); draw();
+});
+
+// card tilt
+function tilt(c){
+  c.addEventListener("mousemove",e=>{
+    const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    c.style.transform=`perspective(700px) rotateY(${x*9}deg) rotateX(${-y*9}deg) translateY(-6px)`;
+  });
+  c.addEventListener("mouseleave",()=>c.style.transform="");
+}
+draw();
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15});
+$$(".rv").forEach(el=>io.observe(el));
+
+// preloader then hero
+addEventListener("load",()=>setTimeout(()=>{
+  $("#pre").classList.add("done");
+  setTimeout(()=>document.body.classList.add("go"),350);
+  document.querySelector(".hero").classList.add("go");
+},1500));
+setTimeout(()=>{ if(!$("#pre").classList.contains("done")){$("#pre").classList.add("done");$(".hero").classList.add("go")} },4000);
+
+// nav shadow + hide on scroll down
+let last=0;
+addEventListener("scroll",()=>{
+  const y=scrollY; $("#nav").classList.toggle("stuck",y>30);
+  $("#nav").style.transform=(y>last&&y>400)?"translateY(-100%)":"none"; last=y;
+},{passive:true});
+
+// custom cursor
+const cur_=$("#cur"); let mx=0,my=0,cx=0,cy=0;
+addEventListener("mousemove",e=>{mx=e.clientX;my=e.clientY});
+(function loop(){cx+=(mx-cx)*.2;cy+=(my-cy)*.2;cur_.style.left=cx+"px";cur_.style.top=cy+"px";requestAnimationFrame(loop)})();
+document.addEventListener("mouseover",e=>cur_.classList.toggle("big",!!e.target.closest("a,button,.card,.step")));
+
+// magnetic buttons
+$$(".btn").forEach(b=>{
+  b.addEventListener("mousemove",e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.22}px,${(e.clientY-r.top-r.height/2)*.3}px)`});
+  b.addEventListener("mouseleave",()=>b.style.transform="");
+});
+
+// hero parallax
+const art=$("#art"),b1=$(".blob.one"),b2=$(".blob.two");
+addEventListener("mousemove",e=>{
+  const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;
+  art.style.transform=`translate(${x*-18}px,${y*-14}px)`;
+  b1.style.transform=`translate(${x*40}px,${y*30}px)`;
+  b2.style.transform=`translate(${x*-50}px,${y*-36}px)`;
+});
+</script>
+</body>
+</html>
